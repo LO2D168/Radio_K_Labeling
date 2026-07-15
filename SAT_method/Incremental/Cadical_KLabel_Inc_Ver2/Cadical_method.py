@@ -4,7 +4,7 @@ from collections import deque
 import list_instance, check_model, read_file, Constraint_model, cal_bound, run_solver
 import pandas
 results = []
-for id in range(77, len(list_instance.list_data)):
+for id in range(0, len(list_instance.list_data)):
 
     start_time = time.time()
     filename = list_instance.list_data[id]
