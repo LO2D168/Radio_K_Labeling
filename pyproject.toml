@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "radio-k-labeling"
+version = "0.1.0"
+description = "Reference implementations and validation tools for radio k-labeling."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Radio K-Labeling contributors" }]
+dependencies = [
+  "networkx>=3.0",
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "scipy>=1.10",
+  "python-sat>=1.8.dev0",
+]
+
+[project.optional-dependencies]
+mip = ["docplex>=2.25", "gurobipy>=11.0"]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[project.scripts]
+radio-k-label = "radio_k_labeling.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
